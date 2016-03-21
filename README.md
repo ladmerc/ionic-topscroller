@@ -1,13 +1,12 @@
 Ionic Scroll To Top 
 ================================================================
 
-An Ionic directive for scrolling to the top of a long list. Demo can be found here:
+An Ionic directive for scrolling to the top of a long list. Demo can be found here (coming soon):
 
 ## Screenshots
+<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/master/img/screenshot1.png" alt="First Image" width="200px"  />
 
-<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/img/screenshot1.png" alt="First Image" width="200px"  />
-
-<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/img/screenshot2.png" alt="Second Image" width="200px"  />
+<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/master/img/screenshot2.png" alt="Second Image" width="200px"  />
 
 
 ## Usage
