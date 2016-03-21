@@ -10,8 +10,7 @@ An Ionic directive for scrolling to the top of a long list. Demo can be found he
 
 
 ## Usage
-
-The following steps assume your environment is  android / ios ready. If you haven't downloaded the appropriate SDKs (ADT, or xcode) and setup the appropriate PATH variables (mostly for android), please do so before doing the steps below. You'll need nodejs installed as well.
+Follow the steps below, having created an ionic app, of course
 
 ### 1. Download
 Download ionic-topscoller
@@ -58,7 +57,7 @@ showing the button, pass a value to the `scroll-to-top` directive. E.g
 ```bash
   <ion-view title="Browse" class="home" scroll-to-top="700">
 ```
-shows the button when the view has scrolled down by and offset of 700px. You can carry out custom offset in your controller, 
+shows the button when the view has scrolled down by an offset of 700px. You can calculate out custom offset in your controller, 
 bind the value to $scope, and pass it to the `scroll-to-top`. E.g
 
 ##### Controller
