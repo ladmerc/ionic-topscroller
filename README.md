@@ -12,7 +12,8 @@ An Ionic directive for scrolling to the top of a long list. Demo can be found he
 
 ## Usage
 
-The following steps assume your environment is  android / ios ready. If you haven't downloaded the appropriate SDKs (ADT, or xcode) and setup the appropriate PATH variables (mostly for android), please do so before doing the steps below. You'll need nodejs installed as well.
+Place the directive in an ion-view, making sure an ion-content is a child of the ion-view. Wrap the intended button in
+a scroll-to-top-button. Style the button as desired 
 
 ### 1. Download
 Download ionic-topscoller
@@ -29,7 +30,11 @@ Download ionic-topscoller
 
 ### 4. Place the `scroll-to-top` directive in an `ion-view`
 ```bash
-  <ion-view title="title" class="home" scroll-to-top>
+  <ion-view title="title" class="class" scroll-to-top>
+    <ion-content>
+        .......
+    </ion-content>
+  </ion-view>
 ```
 
 ### 5. Wrap the button in a `scroll-to-top-button` tag
@@ -54,17 +59,16 @@ NOTE: `scroll-to-top-button` requires the `scroll-to-top` to be on the view.
 
 
 ### 6. Options
-By default, the button is shown when the view is scrolled at an offset its height. To specify custom offset for hiding and
-showing the button, pass a value to the `scroll-to-top` directive. E.g
+By default, the button is shown when the ion-content is scrolled at an offset twice its height. To specify custom offset for
+hiding and showing the button, pass a value to the `scroll-to-top` directive. E.g
 ```bash
-  <ion-view title="Browse" class="home" scroll-to-top="700">
+  <ion-view title="title" class="class" scroll-to-top="700">
 ```
-shows the button when the view has scrolled down by and offset of 700px. You can carry out custom offset in your controller, 
-bind the value to $scope, and pass it to the `scroll-to-top`. E.g
+shows the button when the view has scrolled down by and offset of 700px. Play with several values. You can calculate custom offset in your controller, bind the value to $scope, and pass it to the `scroll-to-top`. E.g
 
 ##### Controller
 ```bash
-  app.controller('HomeCtrl', ['$window', '$scope', function(window, scope) {
+  app.controller('AppCtrl', ['$window', '$scope', function(window, scope) {
     // Not advisable to carry out DOM manipulations here, but can suffice
     var height = $window.innerHeight;
     var listHeight = document.querySelector('.list').offsetHeight
@@ -77,7 +81,7 @@ bind the value to $scope, and pass it to the `scroll-to-top`. E.g
 ```
 ##### Template
 ```bash
-  <ion-view title="Browse" class="home" scroll-to-top="{{ offsetHeight }}">
+  <ion-view title="title" class="class" scroll-to-top="{{ offsetHeight }}">
 ```
 
 ### Todo

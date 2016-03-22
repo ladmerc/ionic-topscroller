@@ -7,12 +7,25 @@ angular.module('topscroller', ['ionic'])
         self.init = function(offset) {
             if (!offset) {
                 var phoneHeight = $window.innerHeight;
-                var topBarHeight = document.querySelector('.get-bar-height').offsetHeight || 0;
-                var navTabHeight = document.querySelector('.tab-nav').offsetHeight || 0;
-                var defaultOffset = phoneHeight - (topBarHeight + navTabHeight)
+                var topBarHeight, defaultOffset;
+
+                // if there is a top bar
+                try {
+                    topBarHeight = document.querySelector('.bar').offsetHeight;
+                } catch (err) {
+                    topBarHeight = 0;
+                }
+                // if there is a nav bar
+                try {
+                    navTabHeight = document.querySelector('.tab-nav').offsetHeight;
+                } catch (err) {
+                    navTabHeight = 0;                    
+                }
+
+                var defaultOffset = (phoneHeight - (topBarHeight + navTabHeight)) * 2;
             }
             if (offset && ((typeof(parseInt(offset)) !== "number") || isNaN(parseInt(offset)) )) {                
-                throw "expected a number, but got " + "'" + offset + "'" + "\n";
+                throw "expected a number, but got " + "'" + offset + "'\n";
             } 
             self.verticalOffset = offset ? offset :  defaultOffset
         }
@@ -39,9 +52,12 @@ angular.module('topscroller', ['ionic'])
 .directive('scrollToTop', ['$ionicGesture', function($ionicGesture) {
         return {
             restrict: 'EA',
-            // scope: true,
             controller: 'scrollToTopCtrl',
             link: function($scope, element, attrs, ctrl) {
+
+                if (element[0].tagName !== "ION-VIEW") {
+                    throw "'scroll-to-top' should be placed in an 'ion-view' \n"
+                }
 
                 // get the vertical offset supplied from the template
                 var verticalOffset = attrs.scrollToTop;
