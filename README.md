@@ -1,19 +1,17 @@
 Ionic Scroll To Top 
 ================================================================
 
-An Ionic directive for scrolling to the top of a long list. Demo can be found here:
+An Ionic directive for scrolling to the top of a long list. Demo can be found here (coming soon):
 
 ## Screenshots
+<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/master/img/screenshot1.png" alt="First Image" width="300px"  />
 
-<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/img/screenshot1.png" alt="First Image" width="200px"  />
-
-<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/img/screenshot2.png" alt="Second Image" width="200px"  />
+<img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/master/img/screenshot2.png" alt="Second Image" width="300px"  />
 
 
 ## Usage
-
 Place the directive in an ion-view, making sure an ion-content is a child of the ion-view. Wrap the intended button in
-a scroll-to-top-button. Style the button as desired 
+a scroll-to-top-button. Style the button as desired. Follow the steps below, having created an ionic app, of course
 
 ### 1. Download
 Download ionic-topscoller
@@ -64,7 +62,9 @@ hiding and showing the button, pass a value to the `scroll-to-top` directive. E.
 ```bash
   <ion-view title="title" class="class" scroll-to-top="700">
 ```
-shows the button when the view has scrolled down by and offset of 700px. Play with several values. You can calculate custom offset in your controller, bind the value to $scope, and pass it to the `scroll-to-top`. E.g
+
+shows the button when the view has scrolled down by an offset of 700px. Play with several values. You can calculate custom offset in your controller, bind the value to $scope, and pass it to the `scroll-to-top`. E.g
+
 
 ##### Controller
 ```bash
