@@ -74,7 +74,13 @@ angular.module('topscroller', ['ionic'])
         restrict: 'E',
         controller: 'scrollToTopCtrl',
         // require: '^scrollToTop',
-        link: function($scope, element, attrs, ctrl) {
+        link: function(scope, element, attrs, ctrl) {
+
+            // if user does not define his own template
+            if (!element.html().trim()) {
+                var template = '<div class="float-button"><span><a class="content"><i class="ion-chevron-up"></i></a></span></div>';
+                element.html(template);
+            }
 
             // set animation option
             shouldAnimate = attrs.animate === "false" ? false : true;
