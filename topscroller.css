@@ -1,0 +1,22 @@
+.float-button {
+    border-radius: 50%;
+    width: 25px;
+    padding: 25px;
+    font-size: 25px;
+    bottom: 110px;
+    background: rgba(70, 78, 77, 0.8);
+    position: absolute;  
+    right: 20px;
+    cursor: pointer;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 57%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px; 
+  color: white;
+}
