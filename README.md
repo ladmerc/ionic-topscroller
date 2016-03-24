@@ -21,7 +21,7 @@ Download ionic-topscoller
   <script src="topscroller.js"></script>
 ```
 and add the css file 
-<link rel="stylesheet" href="topscroller.css">
+`<link rel="stylesheet" href="topscroller.css">`
 
 Preferably, copy out the css from this file into your style.css
 
