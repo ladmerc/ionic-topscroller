@@ -1,0 +1,40 @@
+<html ng-app="App">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>
+      Ionic Scroll-to-top
+    </title>
+    
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <link href="https://rawgit.com/ladmerc/ionic-topscroller/master/topscroller.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <script src="topscroller.js"></script>
+    <script src="app.js"></script>
+    
+  </head>
+  <body class="padding" ng-controller="AppCtrl">
+    
+    <ion-nav-view></ion-nav-view>
+       
+    
+  <script id="templates/home.html" type="text/ng-template">
+    <ion-content scroll-to-top="20" delegate-handle="scroller">
+      <div class="list">   
+          <div class=" item-text-wrap">
+              <ion-list>
+                <ion-item ng-repeat="country in countries">
+                  <h3>Name: {{ country.name.official }}</h3>
+                  <p>Region: {{ country.region }}</p>
+                  <p>Code: {{ country.callingCode[0] }}</p>
+                </ion-item>
+              </ion-list>
+        </div>
+      </div>
+    </ion-content>
+     <scroll-to-top-button animate="true">
+     </scroll-to-top-button>
+  </script>
+  
+  </body>
+</html>

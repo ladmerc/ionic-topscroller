@@ -1,0 +1,37 @@
+{
+  "name": "ionic-topscroller",
+  "version": "0.0.9",
+  "author": {
+    "name": "Meke Ladna"
+  },
+  "description": "Angular.JS directive for scrolling to top in ionic",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "ionic",
+    "top scroll",
+    "scroll",
+  ],
+  "license": "MIT",
+  "main": [
+  "topscroller.js",
+  "topscroller.css"
+  ],
+  "homepage": "https://github.com/ladmerc/ionic-topscroller",
+  "ignore": [
+    "package.json",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "spec",
+    "src",
+    "example",
+    "img"
+  ],
+  "dependencies": {
+    "ionic": ">=1.0.0 <=1.7.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ladmerc/ionic-topscroller.git"
+  }
+}
