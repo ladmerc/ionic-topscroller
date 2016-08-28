@@ -23,14 +23,35 @@ angular.module('topscroller', ['ionic'])
                     navTabHeight = 0;                    
                 }
 
-                // set default to twice the current view width, excluding bars
-                var defaultOffset = (phoneHeight - (topBarHeight + navTabHeight)) * 2;
+                // set default to ten times the current view width, excluding bars
+                var defaultOffset = (phoneHeight - (topBarHeight + navTabHeight)) * 10;
             }
             // make sure user inputs a number type as offset
             if (offset && ((typeof(parseInt(offset)) !== "number") || isNaN(parseInt(offset)) )) {                
-                throw "expected a number, but got " + "'" + offset + "'\n";
+                console.error("expected a number, but got " + "'" + offset + "'\n");
             } 
-            self.verticalOffset = offset ? offset :  defaultOffset
+            self.verticalOffset = offset ||  defaultOffset;
+
+        }
+
+        self.observeScroll = function() {
+
+            // there's only one scroll to top button per view
+            var scrollToTopButton = document.querySelector('ion-view scroll-to-top-button');
+            function onCapturedFrame() {
+                var currentOffset = $ionicScrollDelegate.$getByHandle('scroller').getScrollPosition().top
+                if (currentOffset >= self.verticalOffset) {
+                    if (scrollToTopButton) {
+                        scrollToTopButton.style.display = 'block';
+                    }
+                } else {
+                    if (scrollToTopButton) {
+                        scrollToTopButton.style.display = 'none';
+                    }
+                }
+                window.requestAnimationFrame(onCapturedFrame);
+            }
+            onCapturedFrame()
         }
 
         self.getScrollPosition = function() {
@@ -38,10 +59,10 @@ angular.module('topscroller', ['ionic'])
           var currentScrollPosition = $ionicScrollDelegate.$getByHandle('scroller').getScrollPosition().top;
             $scope.$apply(function() {
               if (currentScrollPosition >= self.verticalOffset) {
-                $rootScope.$broadcast('showButton');
+                $scope.$broadcast('showButton');
               }
               else {
-                $rootScope.$broadcast('hideButton');
+                $scope.$broadcast('hideButton');
               }
             });    
         }; 
@@ -52,19 +73,15 @@ angular.module('topscroller', ['ionic'])
         }
 }])
 
-.directive('scrollToTop', ['$ionicGesture', function($ionicGesture) {
+.directive('scrollToTop', ['$ionicGesture', '$ionicScrollDelegate', function($ionicGesture, $ionicScrollDelegate) {
         return {
             restrict: 'EA',
             controller: 'scrollToTopCtrl',
             link: function(scope, element, attrs, ctrl) {
-
                 // get the vertical offset supplied from the template
                 var verticalOffset = attrs.scrollToTop;
                 ctrl.init(verticalOffset);
-
-                $ionicGesture.on('scroll', function(e) {
-                    ctrl.getScrollPosition()
-                }, element)
+                ctrl.observeScroll();
             }
         }
 }])
@@ -78,26 +95,20 @@ angular.module('topscroller', ['ionic'])
 
             // if user does not define his own template
             if (!element.html().trim()) {
-                var template = '<div class="float-button"><span><a class="content"><i class="ion-chevron-up"></i></a></span></div>';
+                var template = '<div class="float-button scroll-top"><span><a class="content"><i class="ion-chevron-up"></i></a></span></div>';
                 element.html(template);
             }
 
             // set animation option
             shouldAnimate = attrs.animate === "false" ? false : true;
             
-            // hide the button initially
+            // // hide the button initially
             element.css({'display': 'none'});
 
-            $rootScope.$on('showButton', function() {
-                element.css({'display': 'block'});
-            });
-            $rootScope.$on('hideButton', function() {
-                element.css({'display': 'none'});
-            });
 
             $ionicGesture.on('tap', function(e) {
-                    ctrl.scrollToTop(shouldAnimate);
-            }, element)
+                ctrl.scrollToTop(shouldAnimate);
+            }, element) // scrolltop when button clicked
 
         }
     }

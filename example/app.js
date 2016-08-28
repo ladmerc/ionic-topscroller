@@ -13,7 +13,7 @@ angular.module('App', ['ionic', 'topscroller'])
 .controller('AppCtrl', function($scope, $http) {
   $http.get('https://raw.githubusercontent.com/mledoze/countries/master/countries.json').then(function(countries) {
     console.log(countries);
-    $scope.countries = countries.data.slice(0, 50);
+    $scope.countries = countries.data.slice(0, 350);
   }, function(err) {
     console.log(err);
   })
