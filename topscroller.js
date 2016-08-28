@@ -54,19 +54,6 @@ angular.module('topscroller', ['ionic'])
             onCapturedFrame()
         }
 
-        self.getScrollPosition = function() {
-            // create delegate instance to not interfere with other instances
-          var currentScrollPosition = $ionicScrollDelegate.$getByHandle('scroller').getScrollPosition().top;
-            $scope.$apply(function() {
-              if (currentScrollPosition >= self.verticalOffset) {
-                $scope.$broadcast('showButton');
-              }
-              else {
-                $scope.$broadcast('hideButton');
-              }
-            });    
-        }; 
-
         self.scrollToTop = function(shouldAnimate) {
             $scope.$broadcast('hideButton');
             $ionicScrollDelegate.scrollTop(shouldAnimate);
