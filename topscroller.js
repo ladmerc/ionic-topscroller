@@ -90,7 +90,7 @@ angular.module('topscroller', ['ionic'])
     return {
         restrict: 'E',
         controller: 'scrollToTopCtrl',
-        // require: '^scrollToTop',
+        require: '^scrollToTop',
         link: function(scope, element, attrs, ctrl) {
 
             // if user does not define his own template

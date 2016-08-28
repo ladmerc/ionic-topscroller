@@ -1,4 +1,4 @@
-Ionic Scroll To Top 
+Ionic TopScroller
 ================================================================
 
 An Ionic directive for scrolling to the top of a long list. Demo can be found <a href="https://codepen.io/ladmerc/pen/JXNQXr">here:</a>
@@ -70,7 +70,7 @@ NOTE: `scroll-to-top-button` requires the `scroll-to-top` to be existing. Don't 
 
 
 ### 6. Options
-By default, the button is shown when the delegate instance is scrolled at an offset twice its height. To specify custom offset for
+By default, the button is shown when the delegate instance is scrolled at an offset ten times its height. To specify custom offset for
 hiding and showing the button, pass a value to the `scroll-to-top` directive. E.g
 ```bash
     <ion-content scroll-to-top="700" delegate-handle="scroller">
@@ -113,3 +113,4 @@ To create your own button, simply create it in the `<scroll-to-top-button>`. Use
 ### Todo
 1. Write Tests
 2. Provide more configurable options
+3. Provid option of scrolling to bottom
