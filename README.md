@@ -2,7 +2,7 @@ Ionic TopScroller
 ================================================================
 
 An Ionic directive for scrolling to the top of a long list. Demo can be found <a href="https://codepen.io/ladmerc/pen/JXNQXr">here:</a>
-Check it out on the MovRem app - The number one Movie/TV show reminder app
+Check it out on the MovRem app - The number one Movie/TV show reminder app <a href="https://play.google.com/store/apps/details?id=com.qimlab.movrem">here:</a>
 
 ## Screenshots
 <img src="https://raw.githubusercontent.com/ladmerc/ionic-topscroller/master/img/screenshot1.png" alt="First Image" width="300px"  />
